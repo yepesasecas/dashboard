@@ -1,0 +1,22 @@
+{
+  "name": "dashboard",
+  "version": "0.0.0",
+  "description": "Bongo Real Time Dashboard.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bongous",
+    "dashboard",
+    "orders"
+  ],
+  "author": "Andres Yepes <yepes07@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.1",
+    "request": "^2.51.0",
+    "socket.io": "^1.3.2",
+    "underscore": "^1.7.0"
+  }
+}

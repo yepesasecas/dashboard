@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bongo Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Pending</h3>
+            </div>
+            <ul id="p" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">New</h3>
+            </div>
+            <ul id="n" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Vended</h3>
+            </div>
+            <ul id="v" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Cancel</h3>
+            </div>
+            <ul id="c" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Q</h3>
+            </div>
+            <ul id="q" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script>
+    var socket = io();
+
+    socket.on("order event", function(data){
+      order = JSON.parse(data);
+
+      //Delete Order from DOM
+      $("#" + order.id).remove();
+
+      //Add Deleted Order to new Status
+      element = $("<li>").text(order.id + " (" + order.partner + ")")
+                         .attr("id", order.id)
+                         .attr("class", "list-group-item")
+                         .effect("highlight")
+                         .removeAttr("style");
+      $("#" + order.status).prepend(element);
+                           
+    });
+  </script>
+</html>

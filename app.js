@@ -2,6 +2,8 @@ var app  = require('express')();
 var http = require("http").Server(app);
 var io   = require("socket.io")(http);
 
+app.set("port", (process.env.PORT || 3000));
+
 app.get('/', function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
@@ -28,8 +30,7 @@ io.on("connection", function(client){
   });
 });
 
-var server = http.listen(3000, function () {
-
+var server = http.listen(app.get("port"), function () {
   var host = server.address().address;
   var port = server.address().port;
 

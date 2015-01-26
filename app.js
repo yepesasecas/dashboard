@@ -28,9 +28,6 @@ io.on("connection", function(client){
   });
 });
 
-
-
-
 var server = http.listen(3000, function () {
 
   var host = server.address().address;

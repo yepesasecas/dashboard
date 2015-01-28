@@ -61,6 +61,7 @@
 
     socket.on("order event", function(data){
       order = JSON.parse(data);
+      console.log(order);
 
       //Delete Order from DOM
       $("#" + order.id).remove();

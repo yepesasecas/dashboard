@@ -15,6 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.11.1",
+    "mongodb": "^1.4.29",
+    "monk": "^0.9.1",
     "request": "^2.51.0",
     "socket.io": "^1.3.2",
     "underscore": "^1.7.0"

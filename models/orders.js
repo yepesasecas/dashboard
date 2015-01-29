@@ -5,6 +5,7 @@ var _all = function(callback){
 };
 
 var _insert = function(order, callback){
+  order.created_at = Date.now();
   _remove(order, function(err, doc){
     if(err) console.log("error removing from db: " + err);
     db.get("orders").insert(order, callback);

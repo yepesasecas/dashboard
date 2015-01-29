@@ -24,7 +24,7 @@ app.post("/", function(req, res){
     orders.insert(JSON.parse(order), function(err, doc){
       if(err) console.log("error inserting to db: " + err);
       if(doc) console.log(doc);
-      io.emit("order event", order);
+      io.emit("order event", JSON.stringify(doc));
     });
   });
 });

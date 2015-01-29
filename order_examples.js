@@ -1,6 +1,8 @@
 "use strict";
 
 var request = require("request");
+var _ = require("underscore");
+
 var Order = require("./models/order");
 
 var options = {
@@ -10,6 +12,8 @@ var options = {
   url: "http://localhost:3000"
 }
 
+var request_time = [500, 1000, 2000, 5000, 10000];
+
 function _request(){
 
   options.json = Order.random();
@@ -17,7 +21,7 @@ function _request(){
   request(options, function(err){
     if(err) console.log(err);
     console.log(options.json);
-    setTimeout(_request, 1000);
+    setTimeout(_request, _.sample(request_time));
   });
 };
 

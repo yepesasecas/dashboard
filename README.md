@@ -1,15 +1,20 @@
-#BOngo Dashboard
+#Bongo Dashboard
+Use Nodejs to create a simple Real Time Dashboard.
+Convert HTTP POST in to a socket event sent to browser.
 
-1. Run Order example
+##Events Emulator
+1. Run Order emulator
 ```
 node run order_example.js
 ```
+
+##Server
 2. Run Dashboard Server
 ```
 node run app.js
 ```
-3. Open Browser and go to 
 
+3. Open Browser and go to
 ```
 http://localhost:3000
 ```

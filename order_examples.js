@@ -12,7 +12,7 @@ var options = {
   url: "http://localhost:3000"
 }
 
-var request_time = [500, 1000, 2000, 5000, 10000];
+var request_time = [10, 40];
 
 function _request(){
 

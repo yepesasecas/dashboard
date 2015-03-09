@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
           <h1 class="page-header">Orders Flow</h1>
@@ -17,7 +17,7 @@
             <div class="panel-heading">
               <h3 class="panel-title">Pending</h3>
             </div>
-            <ul id="p" class="list-group"></ul>
+            <ul id="r" class="list-group"></ul>
           </div>
         </div>
         <div class="col-sm-2">
@@ -39,17 +39,66 @@
         <div class="col-sm-2">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Cancel</h3>
+              <h3 class="panel-title">Inventory</h3>
             </div>
-            <ul id="c" class="list-group"></ul>
+            <ul id="i" class="list-group"></ul>
           </div>
         </div>
         <div class="col-sm-2">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Q</h3>
+              <h3 class="panel-title">Processing</h3>
             </div>
-            <ul id="q" class="list-group"></ul>
+            <ul id="p" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Shipped</h3>
+            </div>
+            <ul id="s" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="col-sm-12">
+            <h1 class="page-header">Delivered</h1>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Delivered</h3>
+              </div>
+              <ul id="d" class="list-group"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-sm-12">
+            <h1 class="page-header">Cancelled</h1>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Cancelled</h3>
+              </div>
+              <ul id="c" class="list-group"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-sm-12">
+            <h1 class="page-header">Blacklist</h1>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Blacklist</h3>
+              </div>
+              <ul id="b" class="list-group"></ul>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +127,7 @@
                          .effect("highlight")
                          .removeAttr("style");
       
-      $("#" + order.status).prepend(element);                 
+      $("#" + order.status.toLowerCase()).prepend(element);                 
     });
 
     setInterval(update_orders_time_ago, 1000);
